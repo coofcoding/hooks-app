@@ -3,9 +3,13 @@ This repository, is a couple of exercise that i made in the course: [React: De c
 
 ## List of the Hooks implemented
 ```jsx
-// basics and main hook
+// react hook
 useState();
 useEffect();
+useRef();
+useLayoutEffect();
+useCallback();
+useMemo();
 
 // customHooks
 useCounter();
