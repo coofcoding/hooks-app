@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
 
-export const TodoItem = ({ todo , onDeleteTodo}) => {
+export const TodoItem = ({ todo, onDeleteTodo, onToggleTodo }) => {
     return (
-        <li>
+        <li
+            onClick={() => onToggleTodo(todo.id)}
+            className={`${ (todo.done) ?  'done' : '' }`}
+        >
             {todo.description}
             <button
                 className="delete-btn"
-                onClick={ () => onDeleteTodo( todo.id ) }
+                onClick={() => onDeleteTodo(todo.id)}
             >
                 Borrar
             </button>
