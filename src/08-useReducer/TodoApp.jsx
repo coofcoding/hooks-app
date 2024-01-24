@@ -1,23 +1,34 @@
 import { useReducer } from "react";
 import { todoReducer } from "./todoReducer";
 import { TodoAdd, TodoList } from "./";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
 
 const initialState = [
-    {
-        id: new Date().getTime(),
-        description: 'Recolectar la piedra del alma',
-        done: false
-    },
-    {
-        id: new Date().getTime() * 3,
-        description: 'Recolectar la piedra del tiempo',
-        done: false
-    }
+    // {
+    //     id: new Date().getTime(),
+    //     description: 'Recolectar la piedra del alma',
+    //     done: false
+    // },
+    // {
+    //     id: new Date().getTime() * 3,
+    //     description: 'Recolectar la piedra del tiempo',
+    //     done: false
+    // }
 ]
+
+const init = () => {
+    return JSON.parse(localStorage.getItem('todos')) || [];
+}
 
 export const TodoApp = () => {
 
-    const [todos, dispatch] = useReducer(todoReducer, initialState);
+    const [todos, dispatch] = useReducer(todoReducer, initialState, init);
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos))
+    }, [todos])
+
 
     const handleNewTodo = (todo) => {
         const action = {
@@ -25,7 +36,30 @@ export const TodoApp = () => {
             payload: todo
         }
 
-        dispatch( action );
+        dispatch(action);
+    }
+
+    const handleDeleteTodo = (id) => {
+        dispatch({
+            type: '[TODO] Remove Todo',
+            payload: id
+        })
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: "success",
+            title: "Borrado exitosamente"
+        });
     }
 
     return (
@@ -38,6 +72,7 @@ export const TodoApp = () => {
             />
             <TodoList
                 todos={todos}
+                onDeleteTodo={handleDeleteTodo}
             />
 
         </>

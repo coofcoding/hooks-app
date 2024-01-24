@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 
-export const TodoItem = ({ todo }) => {
+export const TodoItem = ({ todo , onDeleteTodo}) => {
     return (
         <li>
             {todo.description}
             <button
                 className="delete-btn"
+                onClick={ () => onDeleteTodo( todo.id ) }
             >
                 Borrar
             </button>
