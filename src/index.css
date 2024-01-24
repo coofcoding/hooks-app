@@ -140,7 +140,7 @@ button[disabled] {
 
 ul {
     list-style: none;
-    margin-top: 30px;
+    margin-top: 5px;
     
     & > li {
         position: relative;
@@ -152,7 +152,6 @@ ul {
         border-radius: 10px;
         padding: 20px;
         border: 1px solid #ffffff20;
-        transition: text-decoration 200ms ease-in-out;
 
         &:hover {
             background-color: #ffffff22;
@@ -164,5 +163,17 @@ ul {
         text-decoration: line-through;
         color:#555555;
     }
-    
+}
+
+span.number {
+    color: #5e5e5e;
+    font-weight: 700;
+}
+
+div.quantity {
+    margin-top: 20px;
+    text-align: left;
+    color: #555555;
+    display: flex;
+    justify-content: space-between;
 }

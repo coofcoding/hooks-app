@@ -3,7 +3,7 @@ import { useTodo } from '../hooks/';
 
 export const TodoApp = () => {
 
-    const { todos, handleNewTodo, handleDeleteTodo, handleToggleTodo } = useTodo();
+    const { todos, todosCount, pendingTodosCount, handleNewTodo, handleDeleteTodo, handleToggleTodo } = useTodo();
 
     return (
         <>
@@ -13,10 +13,17 @@ export const TodoApp = () => {
             <TodoAdd
                 onNewTodo={handleNewTodo}
             />
+
+            <div
+                className="quantity"
+            >
+                <span>total: <span className="number">{todosCount}</span></span>
+                <span>pendientes: <span className="number">{pendingTodosCount}</span></span>
+            </div>
             <TodoList
                 todos={todos}
                 onDeleteTodo={handleDeleteTodo}
-                onToggleTodo={ handleToggleTodo }
+                onToggleTodo={handleToggleTodo}
             />
 
         </>
