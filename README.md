@@ -10,6 +10,7 @@ useRef();
 useLayoutEffect();
 useCallback();
 useMemo();
+useReducer()
 
 // customHooks
 useCounter();
