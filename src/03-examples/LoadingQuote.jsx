@@ -5,6 +5,7 @@ export const LoadingQuote = () => {
     return (
         <div className="alert">
             <RiseLoader color="#209a61" />
+            Loading...
         </div>
     )
 }

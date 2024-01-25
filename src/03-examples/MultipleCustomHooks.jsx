@@ -5,7 +5,7 @@ export const MultipleCustomHooks = () => {
 
     const { counter, increment } = useCounter();
 
-    const { data, isLoading, hasError } = useFetch(`${import.meta.env.VITE_BASE_URL}/${counter}`);
+    const { data, isLoading, hasError } = useFetch(/*`${import.meta.env.VITE_BASE_URL}/${counter}`*/ `https://api.breakingbadquotes.xyz/v1/quotes/${counter}`);
 
     const { author, quote } = !!data && data[0];
 
