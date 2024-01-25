@@ -10,12 +10,15 @@ useRef();
 useLayoutEffect();
 useCallback();
 useMemo();
-useReducer()
+useReducer();
+useContext();
 
 // customHooks
 useCounter();
 useFetch();
 useForm();
+useTodo();
+useReducer();
 ```
 Also, how to export `Hooks methods`, `useEffect dependencies`, `useEffect - cleanup`, forms with `customHooks` & how to connect both `hooks`.
 
