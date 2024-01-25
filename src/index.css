@@ -70,6 +70,7 @@ hr {
     height: 10px;
     background-color: #37bf82bf;
     border-radius: 50px;
+    margin-bottom: 10px;
 }
 
 input {
@@ -176,4 +177,41 @@ div.quantity {
     color: #555555;
     display: flex;
     justify-content: space-between;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin: 20px;
+    
+    & > a {
+        text-decoration: none;
+        color: rgba(179, 179, 179, 0.667);
+        background-color: #ffffff11;
+        padding: 10px 60px;
+        border: 1px solid #ffffff20;
+        border-radius: 10px;
+        font-weight: 600;
+
+        &:hover {
+            transform: scale(1.1);
+            background-color: #ffffff17;
+            border-color: #ffffff28;
+            color: rgb(255, 255, 255);
+        }
+    }
+    
+    & a.active {
+        color: white;
+        background-color: #002013;
+        border-color: #209a61;
+    }
+}
+
+pre {
+    text-align: left;
+    font-family: monospace;
+    font-size: 15px;
 }
